@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:aop="http://www.springframework.org/schema/aop" 
+xmlns:context="http://www.springframework.org/schema/context"
+xmlns:mvc="http://www.springframework.org/schema/mvc"
+xsi:schemaLocation="
+http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context-3.2.xsd
+http://www.springframework.org/schema/aop
+http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
+http://www.springframework.org/schema/mvc
+http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd">
+
+	<!-- 开启包扫描扫描控制器，注意，必须要有，不能因为主配置文件有而省 -->
+	<context:component-scan base-package="com.ztesoft.controller"/>
+    <!-- 开启注解支持MVC -->
+    <mvc:annotation-driven/>
+    <!-- 开启 支持注解式的AOP -->
+	<aop:aspectj-autoproxy proxy-target-class="true"/>
+    <!-- 在上述视图解析器中，如果Controller返回的是blog/index，那么通过视图解析器解析之后的视图就是/WEB-INF/jsp/blog/index.jsp -->
+    <!-- 也可以不使用该配置 -->
+    <bean  class="org.springframework.web.servlet.view.InternalResourceViewResolver">  
+    	<!-- 指定可以使用jstl模板库 -->
+    	<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+        <property name="prefix" value="/WEB-INF/jsp/" />  
+        <property name="suffix" value=".jsp" />  
+    </bean>  
+</beans>
