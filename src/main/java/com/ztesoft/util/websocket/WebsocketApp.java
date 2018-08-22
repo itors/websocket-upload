@@ -1,4 +1,4 @@
-package com.ztesoft.websocket.util;
+package com.ztesoft.util.websocket;
 
 import java.io.IOException;
 import java.net.URI;
@@ -8,13 +8,17 @@ import javax.websocket.DeploymentException;
 import javax.websocket.Session;
 import javax.websocket.WebSocketContainer;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 public class WebsocketApp {
-    private static String webUrl = "localhost";
+	private static Log log = LogFactory.getLog(WebsocketApp.class);
+    private static String webUrl = "localhost:8080/websocket-upload";
     
     public static void send(String batchKey, String message) {
         WebSocketContainer container = ContainerProvider.getWebSocketContainer();
         String uri = "ws://"+webUrl+"/websocket/" + batchKey;
-        System.out.println("Connecting to" + uri);
+        log.info("Connecting to" + uri);
         try {
             Session session = WebsocketSessionUtils.get(batchKey);
             if (session == null) {
@@ -22,13 +26,12 @@ public class WebsocketApp {
                 WebsocketSessionUtils.put(batchKey, session);
             }
             session.getBasicRemote().sendText(message);
-        } catch (DeploymentException e) {
-            e.printStackTrace();
+        } catch (DeploymentException ex) {
+        	log.error(ex.getMessage());
         } catch (IOException e) {
-            e.printStackTrace();
+        	log.error(e.getMessage());
         }
     }
-
     public static String getWebUrl() {
         return webUrl;
     }

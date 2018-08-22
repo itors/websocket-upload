@@ -1,4 +1,4 @@
-package com.ztesoft.websocket.util;
+package com.ztesoft.util.websocket;
 
 import javax.websocket.*;
 import javax.websocket.server.PathParam;
@@ -7,9 +7,12 @@ import javax.websocket.server.ServerEndpoint;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+import com.ztesoft.util.Constant;
+
 @ServerEndpoint("/websocket/{batchKey}")
 public class WebsocketEndPoint {
     private static Log log = LogFactory.getLog(WebsocketEndPoint.class);
+
 
     @OnOpen
     public void onOpen(@PathParam("batchKey") String batchKey, Session session) {
@@ -18,9 +21,13 @@ public class WebsocketEndPoint {
     }
 
     @OnMessage
-    public String onMessage(@PathParam("batchKey") String batchKey,
-            String message) {
-        return "Got your message (" + message + ").Thanks !";
+    public String onMessage(@PathParam("batchKey") String batchKey,String message, Session session) {
+    	//状态修改
+    	if(Constant.SUSPEND.endsWith(message)){
+    		setSocketStatus(batchKey,message);
+    		return null;
+    	}
+        return "Got your message (" + batchKey + ").Thanks !";
     }
 
     @OnError
@@ -35,6 +42,11 @@ public class WebsocketEndPoint {
     public void onClose(@PathParam("batchKey") String batchKey, Session session) {
         log.info("Websocket Close Connection:" + batchKey);
         WebsocketSessionUtils.remove(batchKey);
+    }
+    //每个上传状态
+    private void setSocketStatus(String batchKey,String status){
+    	//添加状态
+		WebsocketSessionUtils.setStatus(batchKey,Constant.SUSPEND);
     }
 
 }
