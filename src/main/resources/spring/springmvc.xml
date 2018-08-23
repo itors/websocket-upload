@@ -36,10 +36,8 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd">
 	    <!-- 设定文件上传的最大值为1G，1024*1024*1024* -->
 	    <property name="maxUploadSize" value="1073741824"></property>
 	    <!-- 设定文件上传时写入内存的最大值，如果小于这个参数不会生成临时文件，默认为10240  10M-->
-	    <property name="maxInMemorySize" value="10485760"></property>
+	    <property name="maxInMemorySize" value="5242880"></property>
 	    <!-- 上传文件的临时路径 -->
 	    <property name="uploadTempDir" value="fileUpload/temp"></property>
-	    <!-- 延迟文件解析 -->
-	    <property name="resolveLazily" value="true"/>
 	</bean>
 </beans>

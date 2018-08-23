@@ -19,7 +19,8 @@ http://www.springframework.org/schema/tx/spring-tx.xsd">
 		<property name="locations">
 			<list>
 				<!-- jdbc配置 -->
-				<value>classpath:db.properties</value>
+				<value>classpath*:db.properties</value>
+				<value>classpath*:sftp.properties</value>
 			</list>
 		</property>
 	</bean>
@@ -28,7 +29,7 @@ http://www.springframework.org/schema/tx/spring-tx.xsd">
 	<import resource="spring-mybaties.xml"/>
 				
 	<!-- 包扫描 -->
-	<context:component-scan base-package="com.byau"/>
+	<context:component-scan base-package="com.ztesoft"/>
 	<!-- 支持注解 -->
 	<context:annotation-config/>
 	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">  
@@ -40,5 +41,11 @@ http://www.springframework.org/schema/tx/spring-tx.xsd">
 	</bean>
 	<!-- 注解式事务 -->
 	<tx:annotation-driven transaction-manager="transactionManager"/>
-	
+	<bean id="sftpUtil" class = "com.ztesoft.util.sftp.SftpUtil">
+		<property name="host" value="${sftp.host}"></property>
+		<property name="port" value="${sftp.port}"></property>
+		<property name="userName" value="${sftp.userName}"></property>
+		<property name="password" value="${sftp.password}"></property>
+		<property name="timeout" value="${sftp.timeout}"></property>
+	</bean>
 </beans>
