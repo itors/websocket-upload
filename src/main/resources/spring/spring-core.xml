@@ -41,6 +41,8 @@ http://www.springframework.org/schema/tx/spring-tx.xsd">
 	</bean>
 	<!-- 注解式事务 -->
 	<tx:annotation-driven transaction-manager="transactionManager"/>
+	
+	<!--sftp 配置文件  -->
 	<bean id="sftpUtil" class = "com.ztesoft.util.sftp.SftpUtil">
 		<property name="host" value="${sftp.host}"></property>
 		<property name="port" value="${sftp.port}"></property>
