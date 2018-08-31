@@ -36,9 +36,10 @@
 		var formFile = new FormData();
         formFile.append("fileKey", fileKey);  
         formFile.append("file", file); //加入文件对象
+        console.log(new Date())
 		$.ajax({
 			type : "POST",
-			url : './upload.action',
+			url : './upload1.action',
 			data : formFile,
 			/**
              *必须false才会自动加上正确的Content-Type

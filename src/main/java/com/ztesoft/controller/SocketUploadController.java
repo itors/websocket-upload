@@ -2,10 +2,10 @@ package com.ztesoft.controller;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,11 +17,13 @@ import com.ztesoft.util.sftp.SftpUtil;
 import com.ztesoft.util.websocket.WebsocketSessionUtils;
 
 @Controller
-public class TestController {
+public class SocketUploadController {
    
 	@ResponseBody
 	@RequestMapping("/upload")
 	public Object test(@RequestParam("file") MultipartFile file,@RequestParam("fileKey")String fileKey){
+		System.out.println(new Date());
+	
 		Map rtnMap = new HashMap();
 		rtnMap.put("resultFlag", true);
 		rtnMap.put("resultCode", "100001");
@@ -49,6 +51,17 @@ public class TestController {
 		}
 		return rtnMap;
 	}
+	@ResponseBody
+	@RequestMapping("/upload1")
+	public Object test1(@RequestParam("fileKey")String fileKey){
+		System.out.println(new Date());
 	
+		Map rtnMap = new HashMap();
+		rtnMap.put("resultFlag", true);
+		rtnMap.put("resultCode", "100001");
+		rtnMap.put("msg","上传成功");
+		
+		return rtnMap;
+	}
     
 }
