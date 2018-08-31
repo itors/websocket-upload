@@ -1,13 +1,13 @@
-package com.ztesoft.util.sftp;
+package com.itors.util.sftp;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+import com.itors.util.Constant;
+import com.itors.util.websocket.WebsocketApp;
+import com.itors.util.websocket.WebsocketEndPoint;
+import com.itors.util.websocket.WebsocketSessionUtils;
 import com.jcraft.jsch.SftpProgressMonitor;
-import com.ztesoft.util.Constant;
-import com.ztesoft.util.websocket.WebsocketApp;
-import com.ztesoft.util.websocket.WebsocketEndPoint;
-import com.ztesoft.util.websocket.WebsocketSessionUtils;
 
 public class MyProgressMonitor implements SftpProgressMonitor {
 	

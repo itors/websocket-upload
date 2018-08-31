@@ -1,4 +1,4 @@
-package com.ztesoft.util;
+package com.itors.util;
 
 public class Constant {
 	

@@ -1,4 +1,4 @@
-package com.ztesoft.controller;
+package com.itors.controller;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.ztesoft.util.Constant;
-import com.ztesoft.util.sftp.SftpUtil;
-import com.ztesoft.util.websocket.WebsocketSessionUtils;
+import com.itors.util.Constant;
+import com.itors.util.sftp.SftpUtil;
+import com.itors.util.websocket.WebsocketSessionUtils;
 
 @Controller
 public class SocketUploadController {

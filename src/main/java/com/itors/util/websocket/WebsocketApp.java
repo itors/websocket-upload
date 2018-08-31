@@ -1,4 +1,4 @@
-package com.ztesoft.util.websocket;
+package com.itors.util.websocket;
 
 import java.io.IOException;
 import java.net.URI;

@@ -1,10 +1,10 @@
-package com.ztesoft.util.websocket;
+package com.itors.util.websocket;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 import javax.websocket.Session;
 
-import com.ztesoft.util.Constant;
+import com.itors.util.Constant;
 
 public class WebsocketSessionUtils {
 

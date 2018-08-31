@@ -1,13 +1,17 @@
-package com.ztesoft.util.websocket;
+package com.itors.util.websocket;
 
-import javax.websocket.*;
+import javax.websocket.OnClose;
+import javax.websocket.OnError;
+import javax.websocket.OnMessage;
+import javax.websocket.OnOpen;
+import javax.websocket.Session;
 import javax.websocket.server.PathParam;
 import javax.websocket.server.ServerEndpoint;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import com.ztesoft.util.Constant;
+import com.itors.util.Constant;
 
 @ServerEndpoint("/websocket/{batchKey}")
 public class WebsocketEndPoint {

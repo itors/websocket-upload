@@ -15,7 +15,7 @@ http://www.springframework.org/schema/mvc
 http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd">
 
 	<!-- 开启包扫描扫描控制器，注意，必须要有，不能因为主配置文件有而省 -->
-	<context:component-scan base-package="com.ztesoft.controller"/>
+	<context:component-scan base-package="com.itors.controller"/>
     <!-- 开启注解支持MVC -->
     <mvc:annotation-driven/>
     <!-- 开启 支持注解式的AOP -->

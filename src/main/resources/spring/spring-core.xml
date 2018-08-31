@@ -13,7 +13,6 @@ http://www.springframework.org/schema/aop
 http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
 http://www.springframework.org/schema/tx   
 http://www.springframework.org/schema/tx/spring-tx.xsd">
-
 	<!-- 通过配置文件 -->
 	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="locations">
@@ -29,12 +28,10 @@ http://www.springframework.org/schema/tx/spring-tx.xsd">
 	<import resource="spring-mybaties.xml"/>
 				
 	<!-- 包扫描 -->
-	<context:component-scan base-package="com.ztesoft"/>
+	<context:component-scan base-package="com.itors"/>
 	<!-- 支持注解 -->
 	<context:annotation-config/>
-	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">  
-	    <property name="maxUploadSize" value="10485760" />  
-	</bean>
+
 	<!-- spring事务 -->
 	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource"></property>
@@ -43,7 +40,7 @@ http://www.springframework.org/schema/tx/spring-tx.xsd">
 	<tx:annotation-driven transaction-manager="transactionManager"/>
 	
 	<!--sftp 配置文件  -->
-	<bean id="sftpUtil" class = "com.ztesoft.util.sftp.SftpUtil">
+	<bean id="sftpUtil" class = "com.itors.util.sftp.SftpUtil">
 		<property name="host" value="${sftp.host}"></property>
 		<property name="port" value="${sftp.port}"></property>
 		<property name="userName" value="${sftp.userName}"></property>

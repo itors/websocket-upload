@@ -1,4 +1,4 @@
-package com.ztesoft.util.sftp;
+package com.itors.util.sftp;
 
 import java.io.FileInputStream;
 import java.io.InputStream;

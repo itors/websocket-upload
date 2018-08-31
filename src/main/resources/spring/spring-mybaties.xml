@@ -23,6 +23,6 @@ http://www.springframework.org/schema/aop/spring-aop-3.2.xsd">
 	
 	<!-- 扫包 dao生成dao的实现类-->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.byau.dao" />
+		<property name="basePackage" value="com.itors.dao" />
 	</bean>
 </beans>
